@@ -7,10 +7,17 @@
     <title>To Do List</title>
 </head>
 <body>
-    <% if(presentDay === "Friday"){ %>
-    <h1 style="color: green;">Today is <%= presentDay %></h1>
-    <% } else { %>
-        <h1 style="color: navy;">Today is <%= presentDay %></h1>
-    <% } %>
+    <h1><%= presentDay %></h1>
+    <ul>
+        <% for(var i=0; i<newListItems.length; i++){ %>
+            <li> <%= newListItems[i] %> </li>
+        <% } %>
+    </ul>
+
+    <form action="/" method="post">
+        <input type="text" name="userInput">
+        <button type="submit">Add</button>
+    </form>
+
 </body>
 </html>
