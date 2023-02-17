@@ -5,43 +5,41 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    
-    let today = new Date();
-    let currentDay = today.getDay();
-    let day ='';
+    let day = new Date();
+    let currentDay = day.getDay();
+    let dayToday = '';
 
     switch (currentDay) {
         case 0:
-            day = "Sunday";
+            dayToday = 'Sunday';
             break;
         case 1:
-            day = "Monday";
+            dayToday = 'Monday';
             break;
         case 2:
-            day = "Tuesday";
+            dayToday = 'Tuesday';
             break;
         case 3:
-            day = "Wednesday";
+            dayToday = 'Wednesday';
             break;
         case 4:
-            day = "Thursday";
-        break;
+            dayToday = 'Thursday';
+            break;
         case 5:
-            day = "Friday";
+            dayToday = 'Friday';
             break;
         case 6:
-            day = "Saturday";
+            dayToday = 'Saturday';
             break;
     
         default:
-            console.log(`Error; Current day is ${day}`);
+            console.log(`Error! Day today is ${currentDay}`);
             break;
-    }
-
-    res.render('days', {dayToday: day});
+    };
+    res.render("days", {presentDay: dayToday});
 });
 
 

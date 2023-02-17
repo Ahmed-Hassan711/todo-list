@@ -7,6 +7,10 @@
     <title>To Do List</title>
 </head>
 <body>
-    <h1>Today is <%= dayToday %>!</h1>
+    <% if(presentDay === "Friday"){ %>
+    <h1 style="color: green;">Today is <%= presentDay %></h1>
+    <% } else { %>
+        <h1 style="color: navy;">Today is <%= presentDay %></h1>
+    <% } %>
 </body>
 </html>
